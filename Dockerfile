@@ -23,15 +23,15 @@ RUN groupadd -g 1000 netbox \
     && useradd -u 1000 -g 1000 -d /usr/src/netbox netbox \
     && chown -Rh netbox:netbox /usr/src/netbox
 
-RUN groupadd -g 1021 admin
-RUN usermod -aG admin netbox
+#RUN groupadd -g 1021 admin
+#RUN usermod -aG admin netbox
 
 # Setup entrypoint
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
 # Expose ports
-EXPOSE 80/tcp
+EXPOSE 8000/tcp
 
 ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["runserver", "--insecure", "0.0.0.0:80"]
+CMD ["runserver", "--insecure", "0.0.0.0:8000"]
