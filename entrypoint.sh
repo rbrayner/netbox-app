@@ -2,8 +2,7 @@
 set -e
 
 manage() {
-#    sudo -HEu netbox ./manage.py "$@"
-    sudo ./manage.py "$@"
+    sudo -HEu netbox ./manage.py "$@"
 }
 
 setup_environment_variables() {
@@ -85,8 +84,7 @@ if [[ "$1" != "/"* ]]; then
     # Collect static files
     manage collectstatic --no-input
 
-#    exec sudo -HEu netbox ./manage.py "$@"
-    exec sudo ./manage.py "$@"
+    exec sudo -HEu netbox ./manage.py "$@"
 fi
 
 exec "$@"
