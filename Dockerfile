@@ -24,7 +24,7 @@ RUN groupadd -g 1000 netbox \
     && chown -Rh netbox:netbox /usr/src/netbox
 
 RUN groupadd -g 1021 admin
-RUN usermod -aG admin $USER
+RUN usermod -aG admin netbox
 
 # Setup entrypoint
 COPY entrypoint.sh /sbin/entrypoint.sh
