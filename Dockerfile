@@ -8,6 +8,10 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# EU EU
+RUN groupadd admin
+RUN usermod -aG admin netbox
+
 # Clone and install netbox
 ENV NETBOX_COMMIT de2a894269f6613e550ec96cb826ba80913761e6
 RUN mkdir -p /usr/src/netbox \
