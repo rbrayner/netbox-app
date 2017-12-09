@@ -30,5 +30,5 @@ RUN chmod 755 /sbin/entrypoint.sh
 # Expose ports
 EXPOSE 80/tcp
 
-ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["runserver", "--insecure", "0.0.0.0:80"]
+ENTRYPOINT ["sudo"]
+CMD ["/sbin/entrypoint.sh", "runserver", "--insecure", "0.0.0.0:80"]
