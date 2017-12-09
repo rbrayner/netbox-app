@@ -31,4 +31,4 @@ RUN chmod 755 /sbin/entrypoint.sh
 EXPOSE 80/tcp
 
 ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["runserver", "--insecure", "0.0.0.0:80"]
+CMD ["runserver", "--insecure", "0.0.0.0:8080"]
