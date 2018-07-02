@@ -9,7 +9,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Clone and install netbox
-ENV NETBOX_COMMIT de2a894269f6613e550ec96cb826ba80913761e6
+ENV NETBOX_COMMIT 6dde0f030a5382a1425ac7820edfa9dcf5162c02
 RUN mkdir -p /usr/src/netbox \
     && git clone https://github.com/digitalocean/netbox.git /usr/src/netbox \
     && (cd /usr/src/netbox && git checkout -q "$NETBOX_COMMIT") \
@@ -22,9 +22,6 @@ WORKDIR /usr/src/netbox/netbox
 RUN groupadd -g 1000 netbox \
     && useradd -u 1000 -g 1000 -d /usr/src/netbox netbox \
     && chown -Rh netbox:netbox /usr/src/netbox
-
-#RUN groupadd -g 1021 admin
-#RUN usermod -aG admin netbox
 
 # Setup entrypoint
 COPY entrypoint.sh /sbin/entrypoint.sh
